@@ -45,13 +45,14 @@ function optionClickEvent(e) {
     let clickedOption = parseInt(e.target.getAttribute('data-op'));
 
     if (questions[currentQuestion].answer === clickedOption) {
-       correctAnswers++; 
+        e.target.style.background = 'green';
+        correctAnswers++; 
     }else{
-        
+        e.target.style.background = 'red'; 
     }
 
     currentQuestion++;
-    showQuestion();
+    setTimeout(showQuestion, 1000);
 }
 
 function finishQuiz() {
