@@ -17,7 +17,7 @@ function showQuestion() {
         document.querySelector('.progress--bar').style.width = `${pct}%`;
 
         document.querySelector('.scoreArea').style.display = 'none';
-        document.querySelector('.questionArea').style.display = 'block';
+        document.querySelector('.questionArea').style.display = 'flex';
 
         document.querySelector('.question').innerHTML = q.question;
         document.querySelector('.options').innerHTML = '';
@@ -35,6 +35,8 @@ function showQuestion() {
         document.querySelectorAll('.options .option').forEach(item => {
            item.addEventListener('click', optionClickEvent); 
         });
+
+        document.querySelector('.acertos').innerHTML = `Questões Acertadas: ${correctAnswers}`;
     }else{
        // Acabaram as questões. 
        finishQuiz();
@@ -46,9 +48,17 @@ function optionClickEvent(e) {
 
     if (questions[currentQuestion].answer === clickedOption) {
         e.target.style.background = 'green';
+        swal({
+            title: "ACERTOU!",
+            icon: "success",
+          });
         correctAnswers++; 
     }else{
         e.target.style.background = 'red'; 
+        swal({
+            title: "ERROU!",
+            icon: "error",
+          });
     }
 
     currentQuestion++;

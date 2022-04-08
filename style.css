@@ -12,6 +12,7 @@ body {
     flex-direction: column;
     background-color: #333;
     font-family: Arial, Helvetica, sans-serif;
+    padding: 20px;
 }
 
 h1 {
@@ -35,6 +36,7 @@ h1 {
 .questionArea,
 .scoreArea {
     display: none;
+    flex-direction: column;
 }
 
 .questionArea {
@@ -115,6 +117,13 @@ h1 {
 }
 .scoreArea button:hover {
     background-color: rgba(0, 0, 0, 0.4);
+}
+
+.acertos{
+    align-self: flex-end;
+    color: white;
+    margin-top: 5px;
+    font-size: 14px;
 }
 
 footer {
